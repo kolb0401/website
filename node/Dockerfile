@@ -3,7 +3,7 @@
 FROM    ubuntu
 
 # File Author / Maintainer
-MAINTAINER Anand Mani Sankar
+MAINTAINER Jonthan Kolb
 
 # Update the repository
 RUN apt-get update
@@ -26,4 +26,4 @@ RUN cd /src; npm install
 EXPOSE  8080
 
 # Run app using nodemon
-CMD ["nodemon", "/src/index.js"]
+CMD ["nodemon", "/src/app.js"]

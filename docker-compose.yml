@@ -1,5 +1,5 @@
 nginx:
-  build: ./nginx
+  image: kolb0401/nginx
   links:
     - node1:node1
     - node2:node2
@@ -7,13 +7,13 @@ nginx:
   ports:
     - "80:80"
 node1:
-  build: ./node
+  image: kolb0401/node
   ports:
     - "8080"
   volumes:
     - node:/src
 node2:
-  build: ./node
+  build: kolb0401/node
   ports:
     - "8080"
   volumes:

@@ -1,0 +1,26 @@
+nginx:
+  build: ./nginx
+  links:
+    - node1:node1
+    - node2:node2
+    - blog1:blog1
+  ports:
+    - "80:80"
+node1:
+  build: ./node
+  ports:
+    - "8080"
+  volumes:
+    - node:/src
+node2:
+  build: ./node
+  ports:
+    - "8080"
+  volumes:
+    - node:/src
+blog1:
+  image: ghost
+  ports:
+    - "2368"
+  volumes:
+    - blog:/ghost-override

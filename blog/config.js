@@ -9,7 +9,7 @@ config = {
     // ### Development **(default)**
     development: {
         // The url to use when providing links to the site, E.g. in RSS and email.
-        url: '',
+        url: 'http://localhost:80',
 
 
 
@@ -47,7 +47,7 @@ config = {
     // When running Ghost in the wild, use the production environment
     // Configure your URL and mail settings here
     production: {
-        url: '',
+        url: 'http://blog.jonathankolb.com',
 
           mail: {
               transport: 'SMTP',

@@ -19,11 +19,13 @@ RUN npm install -g nodemon
 # Bundle app source
 COPY . /src
 
+WORKDIR /src
+
 # Install app dependencies
 RUN cd /src; npm install
 
 # Expose port
 EXPOSE  8080
 
-# Run app using nodemon
-CMD ["nodemon", "/src/app.js"]
+# Run app using node
+CMD ["node", "./app.js"]

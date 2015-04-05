@@ -1,5 +1,5 @@
 nginx:
-  image: kolb0401/nginx
+  image: fumblesandfriends/nginx
   links:
     - node1:node1
     - node2:node2
@@ -7,19 +7,23 @@ nginx:
   ports:
     - "80:80"
 node1:
-  image: kolb0401/node
+  image: fumblesandfriends/node
   ports:
     - "8080"
   volumes:
     - node:/src
+  environment:
+    - RACK_ENV=production
 node2:
   build: kolb0401/node
   ports:
     - "8080"
   volumes:
     - node:/src
+  environment:
+    - RACK_ENV=production
 blog1:
-  image: ghost
+  image: dockerfile/ghost
   ports:
     - "2368"
   volumes:

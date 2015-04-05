@@ -15,7 +15,7 @@ node1:
   environment:
     - RACK_ENV=production
 node2:
-  build: fumblesandfriends/node
+  image: fumblesandfriends/node
   ports:
     - "8080"
   volumes:

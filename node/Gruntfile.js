@@ -102,17 +102,6 @@ module.exports = function (grunt) {
             }
         },
 
-        // Open Config
-        open: {
-            site: {
-                path: 'http://localhost:3000',
-            },
-            editor: {
-                path: './',
-                app: ''
-            },
-        },
-
         // Rev Config
         rev: {
             dist: {
@@ -256,8 +245,6 @@ module.exports = function (grunt) {
         'jshint',
         'sass:dev',
         'express:dev',
-        'open:site',
-        'open:editor',
         'watch'
     ]);
 
@@ -267,7 +254,7 @@ module.exports = function (grunt) {
         'express:dev',
         'watch'
     ]);
-    
+
 
     // Build
     grunt.registerTask('build', 'Build production ready assets and views.', [

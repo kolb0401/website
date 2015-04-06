@@ -10,9 +10,11 @@
 /**
  * Setup
  */
-@import "../../bower_components/bourbon/app/assets/stylesheets/bourbon";
+@import "../normalize";
+@import "../foundation";
 @import "vars";
 @import "mixins";  // Custom mixins
+
 
 
 
@@ -21,12 +23,12 @@
 /**
  * She’s all yours, cap’n... Begin importing your stuff here.
  */
-@import "ui/scaffolding";
-@import "ui/typography";
-@import "ui/color";
-@import "ui/header";
-@import "ui/navs";
-@import "ui/forms";
-@import "ui/buttons";
-@import "ui/footer";
-@import "ui/helpers";
+body {
+  font-family: 'Muli', sans-serif;
+}
+
+h1,h2 {
+  font-family: 'Oswald', sans-serif;
+}
+
+@import "page/index";

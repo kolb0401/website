@@ -1,0 +1,25 @@
+/* line 1, ../../sass/main.scss */
+body {
+  font-family: 'Muli', sans-serif;
+}
+
+/* line 5, ../../sass/main.scss */
+h1, h2 {
+  font-family: 'Oswald', sans-serif;
+}
+
+/* line 2, ../../sass/_index.scss */
+.index-page .container {
+  margin: auto;
+  text-align: center;
+}
+/* line 7, ../../sass/_index.scss */
+.index-page .title {
+  display: none;
+  padding-top: 45px;
+}
+/* line 12, ../../sass/_index.scss */
+.index-page .content {
+  display: none;
+  padding-top: 45px;
+}

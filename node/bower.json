@@ -2,9 +2,6 @@
   "name": "jk-pet-project",
   "version": "0.0.0",
   "dependencies": {
-    "bourbon": "~3.1.8",
-    "jquery": "2.0.3",
-    "modernizr": "~2.6.2"
   },
   "devDependencies": {}
 }

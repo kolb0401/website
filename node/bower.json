@@ -2,6 +2,7 @@
   "name": "jk-pet-project",
   "version": "0.0.0",
   "dependencies": {
+    "flight": "~1.5.0"
   },
   "devDependencies": {}
 }

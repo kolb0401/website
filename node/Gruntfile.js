@@ -27,23 +27,25 @@ module.exports = function(grunt) {
         },
 
         externals: {
-          jquery: "jQuery"
+          jquery: "jQuery",
+          foundation: "Foundation",
+          modernizer: "Modernizer",
+          fastClick: "FastClick"
         },
 
         resolve: {
           root: path.resolve(__dirname, './assets'),
+          modulesDirectories: ['bower_components', 'js/modules']
         },
 
-        entry: [
-          "./assets/js/index.js"
-        ],
+        entry: {
+          "index": "./assets/js/index.js"
+        },
+
         output: {
             path: "assets/js/dist",
             filename: "[name]-page.js",
         },
-
-
-
       }
     },
 
@@ -63,15 +65,33 @@ module.exports = function(grunt) {
           imagesDir: 'assets/images'
         }
       }
-    }
+    },
 
+    concat: {
+      dist: {
+        files: {
+          //The foundation files do not play well with require. So we will just
+          // concat them into a vendor file and define the shim in webpack.
+          'assets/js/dist/vendor.min.js' : [
+            'assets/bower_components/foundation/js/vendor/jquery.js',
+            'assets/bower_components/foundation/js/vendor/jquery.cookie.js',
+            'assets/bower_components/foundation/js/vendor/fastclick.js',
+            'assets/bower_components/foundation/js/vendor/modernizer.js',
+            'assets/bower_components/foundation/js/vendor/placeholder.js',
+            'assets/bower_components/foundation/js/foundation.min.js'
+          ]
+        }
+      }
+    }
 
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-webpack');
 
-  grunt.registerTask('default', ['jshint', 'webpack:site', 'compass:dist']);
+  //TODO: add minification...
+  grunt.registerTask('default', ['jshint', 'webpack:site', 'compass:dist', 'concat:dist']);
 };

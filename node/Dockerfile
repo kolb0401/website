@@ -13,9 +13,6 @@ RUN apt-get -y install curl
 RUN curl -sL https://deb.nodesource.com/setup | sudo bash -
 RUN apt-get -y install python build-essential nodejs
 
-# Install nodemon
-RUN npm install -g nodemon
-
 # Bundle app source
 COPY . /src
 

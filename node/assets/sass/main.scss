@@ -1,9 +1,17 @@
+@import 'vendor/normalize';
+@import 'vendor/foundationIcons';
+@import 'vendor/foundation';
+
 body {
   font-family: 'Muli', sans-serif;
 }
 
 h1,h2 {
   font-family: 'Oswald', sans-serif;
+}
+
+.main-section {
+  min-height: 1000px;
 }
 
 @import 'index';

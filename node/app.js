@@ -5,7 +5,21 @@
  */
 var express = require('express');
 var app = express();
-var port = 8080;
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+var InstagramStream = require('./instagramTagStream');
+var creds = require('./instagramCreds');
+var port = 8081;
+var instagramStream = new InstagramStream(creds);
+
+/*
+ * Start it up
+ */
+server.listen(process.env.PORT || port);
+console.log('Express started on port ' + port);
+
+
+
 
 /*
  * Use Handlebars for templating
@@ -51,9 +65,32 @@ app.get('/', function(request, response, next) {
     response.render('index');
 });
 
+// Index Page
+app.get('/instagram-stream', function(request, response, next) {
+    response.render('instagramStream');
+});
 
-/*
- * Start it up
+/**
+ * Instagram feed via sockets io
  */
-app.listen(process.env.PORT || port);
-console.log('Express started on port ' + port);
+var instagramIoEmiter = io.of('/instagram/recent/tag');
+
+instagramIoEmiter.on('connection', function (socket) {
+  console.log("Instagram Socket connected");
+
+  socket.on('registerTag', function (data) {
+    console.log("Registering tag: " + data);
+    socket.join(data);
+    instagramStream.addTag(data);
+  });
+});
+
+instagramStream.on('tag', function (data) {
+  for (var media in data.content) {
+    var response = {
+      tag: data.tag,
+      media: data.content[media]
+    };
+    instagramIoEmiter.to(data.tag).emit('tag', response);
+  }
+});

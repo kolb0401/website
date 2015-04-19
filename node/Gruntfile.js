@@ -34,12 +34,13 @@ module.exports = function(grunt) {
         },
 
         resolve: {
-          root: path.resolve(__dirname, './assets'),
-          modulesDirectories: ['bower_components', 'js/modules']
+          root: path.resolve(__dirname, './'),
+          modulesDirectories: ['assets/bower_components', 'assets/js/modules', 'node_modules']
         },
 
         entry: {
-          "index": "./assets/js/index.js"
+          "index": "./assets/js/index.js",
+          "instagram-stream": "./assets/js/instagram-stream.js"
         },
 
         output: {

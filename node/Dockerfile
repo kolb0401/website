@@ -3,7 +3,7 @@
 FROM    ubuntu
 
 # File Author / Maintainer
-MAINTAINER Jonthan Kolb
+MAINTAINER Jonathan Kolb
 
 # Update the repository
 RUN apt-get update

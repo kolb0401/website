@@ -74,7 +74,7 @@
 	 * This component should be attached to the highest level of the dom possible.
 	 *
 	 */
-	var defineComponent = __webpack_require__(3);
+	var defineComponent = __webpack_require__(5);
 	var $ = __webpack_require__(1);
 
 	var component = defineComponent(offCanvasMenu);
@@ -104,19 +104,21 @@
 
 
 /***/ },
-/* 3 */
+/* 3 */,
+/* 4 */,
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Copyright 2013 Twitter, Inc. Licensed under The MIT License. http://opensource.org/licenses/MIT */
 
 	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	    __webpack_require__(4),
-	    __webpack_require__(5),
-	    __webpack_require__(6),
 	    __webpack_require__(7),
 	    __webpack_require__(8),
 	    __webpack_require__(9),
-	    __webpack_require__(10)
+	    __webpack_require__(10),
+	    __webpack_require__(11),
+	    __webpack_require__(12),
+	    __webpack_require__(13)
 	  ], __WEBPACK_AMD_DEFINE_RESULT__ = function(advice, utils, compose, withBase, registry, withLogging, debug) {
 	    'use strict';
 
@@ -235,13 +237,14 @@
 
 
 /***/ },
-/* 4 */
+/* 6 */,
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Copyright 2013 Twitter, Inc. Licensed under The MIT License. http://opensource.org/licenses/MIT */
 
 	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	    __webpack_require__(5)
+	    __webpack_require__(8)
 	  ], __WEBPACK_AMD_DEFINE_RESULT__ = function(utils) {
 	    'use strict';
 
@@ -304,12 +307,12 @@
 
 
 /***/ },
-/* 5 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Copyright 2013 Twitter, Inc. Licensed under The MIT License. http://opensource.org/licenses/MIT */
 
-	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(10)], __WEBPACK_AMD_DEFINE_RESULT__ = function(debug) {
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(13)], __WEBPACK_AMD_DEFINE_RESULT__ = function(debug) {
 	    'use strict';
 
 	    var DEFAULT_INTERVAL = 100;
@@ -609,13 +612,13 @@
 
 
 /***/ },
-/* 6 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Copyright 2013 Twitter, Inc. Licensed under The MIT License. http://opensource.org/licenses/MIT */
 
 	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	    __webpack_require__(5)
+	    __webpack_require__(8)
 	  ], __WEBPACK_AMD_DEFINE_RESULT__ = function(utils) {
 	    'use strict';
 
@@ -651,15 +654,15 @@
 
 
 /***/ },
-/* 7 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Copyright 2013 Twitter, Inc. Licensed under The MIT License. http://opensource.org/licenses/MIT */
 
 	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	    __webpack_require__(5),
 	    __webpack_require__(8),
-	    __webpack_require__(10)
+	    __webpack_require__(11),
+	    __webpack_require__(13)
 	  ], __WEBPACK_AMD_DEFINE_RESULT__ = function(utils, registry, debug) {
 	    'use strict';
 
@@ -975,7 +978,7 @@
 
 
 /***/ },
-/* 8 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Copyright 2013 Twitter, Inc. Licensed under The MIT License. http://opensource.org/licenses/MIT */
@@ -1200,13 +1203,13 @@
 
 
 /***/ },
-/* 9 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Copyright 2013 Twitter, Inc. Licensed under The MIT License. http://opensource.org/licenses/MIT */
 
 	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	    __webpack_require__(5)
+	    __webpack_require__(8)
 	  ], __WEBPACK_AMD_DEFINE_RESULT__ = function(utils) {
 	    'use strict';
 
@@ -1300,12 +1303,12 @@
 
 
 /***/ },
-/* 10 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Copyright 2013 Twitter, Inc. Licensed under The MIT License. http://opensource.org/licenses/MIT */
 
-	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(8)], __WEBPACK_AMD_DEFINE_RESULT__ = function(registry) {
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(11)], __WEBPACK_AMD_DEFINE_RESULT__ = function(registry) {
 	    'use strict';
 
 	    // ==========================================

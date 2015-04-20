@@ -163,12 +163,12 @@
 	      return;
 	    }
 	    var media = data.media;
-	    var html =
-	    '<div class="instagram-feed-item">' +
+	    var $html = $(
+	    '<div class="small-6 medium-4 large-2 columns instagram-feed-item">' +
 	      '<img class="instagram-feed-item__image" src="' + media.images.standard_resolution.url + '"/>' +
-	      '<div class="instagram-feed-item__caption">' + media.caption.text + '</div>' +
-	    '</div>';
-	    this.select('resultsSelector').prepend(html);
+	    '</div>');
+	    this.select('resultsSelector').prepend($html);
+	    $html.fadeIn(500);
 	  };
 
 	  this.onSubmit = function (event) {
@@ -231,8 +231,7 @@
 	    /**
 	     * The url to connect the socket.
 	     */
-	    url: 'http://localhost:8081/instagram/recent/tag',
-
+	    url: '/instagram/recent/tag',
 	    /**
 	     * The message header to send to register a new tag
 	     */
@@ -254,14 +253,6 @@
 	   */
 	  this.registerTag = function (event, tag) {
 	    this.attr.socket.emit(this.attr.registerMsg, tag);
-	    var self = this;
-	    this.attr.socket.on(this.attr.listenMsgBase, function (data) {
-	      var response = {
-	        tag: tag,
-	        media: data
-	      };
-	      self.trigger(self.attr.EV_NEW_MEDIA, response);
-	    });
 	  };
 
 	  /**

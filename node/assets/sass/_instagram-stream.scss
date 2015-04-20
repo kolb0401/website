@@ -1,0 +1,20 @@
+.instagram-stream-page {
+
+  p {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .instagram-feed-item {
+    display: none;
+  }
+  
+  .instagram-feed-item__caption {
+    padding-top: 20px;
+  }
+}

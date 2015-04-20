@@ -6,7 +6,13 @@ body {
   font-family: 'Muli', sans-serif;
 }
 
-h1,h2 {
+.main-section {
+  text-align: center;
+  margin: auto;
+  padding-top: 45px;
+}
+
+h1,h2,h3,h4,h5 {
   font-family: 'Oswald', sans-serif;
 }
 
@@ -15,3 +21,4 @@ h1,h2 {
 }
 
 @import 'index';
+@import 'instagram-stream';

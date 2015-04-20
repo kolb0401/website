@@ -12216,11 +12216,18 @@ body {
 }
 
 /* line 9, ../../sass/main.scss */
-h1, h2 {
+.main-section {
+  text-align: center;
+  margin: auto;
+  padding-top: 45px;
+}
+
+/* line 15, ../../sass/main.scss */
+h1, h2, h3, h4, h5 {
   font-family: 'Oswald', sans-serif;
 }
 
-/* line 13, ../../sass/main.scss */
+/* line 19, ../../sass/main.scss */
 .main-section {
   min-height: 1000px;
 }
@@ -12233,10 +12240,28 @@ h1, h2 {
 /* line 7, ../../sass/_index.scss */
 .index-page .title {
   display: none;
-  padding-top: 45px;
 }
-/* line 12, ../../sass/_index.scss */
+/* line 11, ../../sass/_index.scss */
 .index-page .content {
   display: none;
   padding-top: 45px;
+}
+
+/* line 3, ../../sass/_instagram-stream.scss */
+.instagram-stream-page p {
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+/* line 8, ../../sass/_instagram-stream.scss */
+.instagram-stream-page img {
+  max-width: 100%;
+  height: auto;
+}
+/* line 13, ../../sass/_instagram-stream.scss */
+.instagram-stream-page .instagram-feed-item {
+  display: none;
+}
+/* line 17, ../../sass/_instagram-stream.scss */
+.instagram-stream-page .instagram-feed-item__caption {
+  padding-top: 20px;
 }

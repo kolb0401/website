@@ -1,62 +1,25 @@
-<div class="off-canvas-wrap" data-offcanvas>
+<section class="main-section instagram-stream-page">
 
-  <div class="inner-wrap">
+  <h1>Instagram Stream</h1>
 
-    <nav class="tab-bar">
-
-      <section class="left-small">
-
-        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
-
-      </section>
-
-    </nav>
+  <p>
+    The demo lets you specify an instagram tag and then streams recent photos
+    that apply to that tag. More info about this project will be on the blog soon.
+  </p>
 
 
-
-    <aside class="left-off-canvas-menu">
-
-      <ul class="off-canvas-list">
-
-        <li><a href="/"><label>JonathanKolb.com</label></a></li>
-
-        <li><a href="http://blog.jonathankolb.com">My Blog</a></li>
-
-        <li><a href="#" class="off-canvas-submenu-call">Social <span class="right"> + </span></a></li>
-
-                <ul class="off-canvas-submenu">
-
-                <li><a class="fi-social-github" href="https://github.com/fumblesandfriends">Github</a></li>
-
-                <li><a class="fi-social-linkedin" href="https://www.linkedin.com/pub/jonathan-kolb/27/376/7a5">LinkedIn</a></li>
-
-              </ul>
-      </ul>
-
-    </aside>
-
-
-
-    <section class="main-section instagram-stream-page">
-      <div class="instagram-stream">
-        <span class="instagram-stream__instructions">
-          Enter a tag and hit go! The results should start to stream in shortly after.
-        </span>
-        <form class="instagram-stream__form">
-          <input type="text" class="tag_input"/>
-          <button type="submit" class="do_submit">Go!</button>
-        </form>
-        <div class="instagram-stream-results"></div>
+  <div class="instagram-stream">
+    <form class="instagram-stream__form">
+      <div class="row collapse">
+        <div class="small-10 columns">
+          <input type="text" class="tag_input" placeholder="Enter a tag...">
+        </div>
+        <div class="small-2 columns">
+          <a href="#" class="do_submit button prefix">Search</a>
+        </div>
       </div>
-    </section>
-
-
-
-  <a class="exit-off-canvas"></a>
-
-
-
+    </form>
+    <div class="row collapse instagram-stream-results"></div>
   </div>
-
-  <script type="text/javascript" src="/js/dist/instagram-stream-page.js"></script>
-</div>
+</section>
+<script type="text/javascript" src="/js/dist/instagram-stream-page.js"></script>

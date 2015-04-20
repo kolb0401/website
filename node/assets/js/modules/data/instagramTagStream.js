@@ -29,8 +29,7 @@ function InstagramTagStream () {
     /**
      * The url to connect the socket.
      */
-    url: 'http://localhost:8081/instagram/recent/tag',
-
+    url: '/instagram/recent/tag',
     /**
      * The message header to send to register a new tag
      */
@@ -52,14 +51,6 @@ function InstagramTagStream () {
    */
   this.registerTag = function (event, tag) {
     this.attr.socket.emit(this.attr.registerMsg, tag);
-    var self = this;
-    this.attr.socket.on(this.attr.listenMsgBase, function (data) {
-      var response = {
-        tag: tag,
-        media: data
-      };
-      self.trigger(self.attr.EV_NEW_MEDIA, response);
-    });
   };
 
   /**

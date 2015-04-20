@@ -53,12 +53,12 @@ function offCanvasMenu() {
       return;
     }
     var media = data.media;
-    var html =
-    '<div class="instagram-feed-item">' +
+    var $html = $(
+    '<div class="small-6 medium-4 large-2 columns instagram-feed-item">' +
       '<img class="instagram-feed-item__image" src="' + media.images.standard_resolution.url + '"/>' +
-      '<div class="instagram-feed-item__caption">' + media.caption.text + '</div>' +
-    '</div>';
-    this.select('resultsSelector').prepend(html);
+    '</div>');
+    this.select('resultsSelector').prepend($html);
+    $html.fadeIn(500);
   };
 
   this.onSubmit = function (event) {

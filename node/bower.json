@@ -1,6 +1,6 @@
 {
   "name": "jk-pet-project",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "dependencies": {
     "react": "~0.13.2",
   },

@@ -2,10 +2,14 @@ module.exports = function(grunt) {
   var path = require("path");
   grunt.initConfig({
     jshint: {
-      files: ['Gruntfile.js', 'assets/js/*.js', 'assets/js/**/*.js', '!assets/bower_components/**/*.js', '!assets/js/dist/*.js'],
+      files: ['Gruntfile.js', 'app.js', 'server/*.js', 'assets/js/*.js', 'assets/js/**/*.js', '!assets/bower_components/**/*.js', '!assets/js/dist/*.js'],
       options: {
         globals: {
-          jQuery: true
+          jQuery: true,
+          __dirname: true,
+          require: true,
+          process: true,
+          console: true
         }
       }
     },
@@ -40,7 +44,6 @@ module.exports = function(grunt) {
 
         entry: {
           "index": "./assets/js/index.js",
-          "instagram-stream": "./assets/js/instagram-stream.js"
         },
 
         output: {
@@ -79,9 +82,29 @@ module.exports = function(grunt) {
             'assets/bower_components/foundation/js/vendor/fastclick.js',
             'assets/bower_components/foundation/js/vendor/modernizer.js',
             'assets/bower_components/foundation/js/vendor/placeholder.js',
-            'assets/bower_components/foundation/js/foundation.min.js'
+            'assets/bower_components/foundation/js/foundation.min.js',
+            'assets/bower_components/route-recongizer/'
           ]
         }
+      }
+    },
+
+    bump: {
+      options: {
+        files: ['package.json', 'bower.json'],
+        updateConfigs: [],
+        commit: true,
+        commitMessage: 'Release v%VERSION%',
+        commitFiles: ['package.json', 'bower.json'],
+        createTag: true,
+        tagName: 'v%VERSION%',
+        tagMessage: 'Version %VERSION%',
+        push: true,
+        pushTo: 'upstream',
+        gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d',
+        globalReplace: false,
+        prereleaseName: false,
+        regExp: false
       }
     }
 
@@ -92,6 +115,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-webpack');
+  grunt.loadNpmTasks('grunt-bump');
 
   //TODO: add minification...
   grunt.registerTask('default', ['jshint', 'webpack:site', 'compass:dist', 'concat:dist']);

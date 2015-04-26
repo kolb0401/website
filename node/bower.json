@@ -1,8 +1,0 @@
-{
-  "name": "jk-pet-project",
-  "version": "1.0.1",
-  "dependencies": {
-    "backbone": "~1.1.2"
-  },
-  "devDependencies": {}
-}

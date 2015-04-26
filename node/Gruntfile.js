@@ -2,7 +2,7 @@ module.exports = function(grunt) {
   var path = require("path");
   grunt.initConfig({
     jshint: {
-      files: ['Gruntfile.js', 'app.js', 'server/*.js', 'assets/js/*.js', 'assets/js/**/*.js', '!assets/bower_components/**/*.js', '!assets/js/dist/*.js', '!assets/js/modules/react/**/*.js'],
+      files: ['Gruntfile.js', 'app.js', 'server/*.js', 'assets/js/*.js', 'assets/js/**/*.js', '!assets/vendor_components/**/*.js', '!assets/js/dist/*.js', '!assets/js/modules/react/**/*.js'],
       options: {
         globals: {
           jQuery: true,
@@ -51,7 +51,7 @@ module.exports = function(grunt) {
 
         resolve: {
           root: path.resolve(__dirname, './'),
-          modulesDirectories: ['assets/bower_components', 'assets/js/modules', 'node_modules'],
+          modulesDirectories: ['assets/vendor_components', 'assets/js/modules', 'node_modules'],
           extensions: ['', '.js', '.jsx'],
         },
 
@@ -106,14 +106,14 @@ module.exports = function(grunt) {
           //The foundation files do not play well with require. So we will just
           // concat them into a vendor file and define the shim in webpack.
           'assets/js/dist/vendor.min.js' : [
-            'assets/bower_components/foundation/js/vendor/jquery.js',
-            'assets/bower_components/foundation/js/vendor/jquery.cookie.js',
-            'assets/bower_components/foundation/js/vendor/fastclick.js',
-            'assets/bower_components/foundation/js/vendor/modernizer.js',
-            'assets/bower_components/foundation/js/vendor/placeholder.js',
-            'assets/bower_components/foundation/js/foundation.min.js',
-            'assets/bower_components/underscore/underscore-min.js',
-            'assets/bower_components/react/*.js'
+            'assets/vendor_components/foundation/js/vendor/jquery.js',
+            'assets/vendor_components/foundation/js/vendor/jquery.cookie.js',
+            'assets/vendor_components/foundation/js/vendor/fastclick.js',
+            'assets/vendor_components/foundation/js/vendor/modernizer.js',
+            'assets/vendor_components/foundation/js/vendor/placeholder.js',
+            'assets/vendor_components/foundation/js/foundation.min.js',
+            'assets/vendor_components/underscore/underscore-min.js',
+            'assets/vendor_components/react/*.js'
           ]
         }
       }

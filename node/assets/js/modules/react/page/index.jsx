@@ -1,7 +1,7 @@
 var React = require('react');
 var $ = require('jquery');
 var IndexPage = React.createClass({
-  
+
   render: function () {
     return (
       <section className="index-page">
@@ -17,7 +17,7 @@ var IndexPage = React.createClass({
 
   componentDidMount: function () {
     if (this.isMounted()){
-      $('.index-page').find('.title,.content').show();
+      $('.index-page').find('.title,.content').fadeIn();
     }
   }
 });

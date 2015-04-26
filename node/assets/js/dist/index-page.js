@@ -133,7 +133,7 @@
 	/** @jsx React.DOM */var React = __webpack_require__(2);
 	var $ = __webpack_require__(1);
 	var IndexPage = React.createClass({displayName: "IndexPage",
-	  
+
 	  render: function () {
 	    return (
 	      React.createElement("section", {className: "index-page"}, 
@@ -149,7 +149,7 @@
 
 	  componentDidMount: function () {
 	    if (this.isMounted()){
-	      $('.index-page').find('.title,.content').show();
+	      $('.index-page').find('.title,.content').fadeIn();
 	    }
 	  }
 	});

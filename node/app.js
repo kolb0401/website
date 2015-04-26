@@ -9,6 +9,7 @@ var app = express();
 var server = require('http').Server(app);
 var port = 8081;
 
+
 /*
  * Start it up
  */
@@ -30,12 +31,12 @@ app.use(express.compress());
 app.engine('handlebars', exphbs({
     // Default Layout and locate layouts and partials
     defaultLayout: 'main',
-    layoutsDir: 'views/layouts/',
-    partialsDir: 'views/partials/'
+    layoutsDir: 'views/dist/views/layouts/',
+    partialsDir: 'views/dist/views/partials/'
 }));
 
 // Locate the views
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + '/views/dist/views');
 
 // Locate the assets
 app.use(express.static(__dirname + '/assets'));

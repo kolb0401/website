@@ -45,23 +45,24 @@ module.exports = function(grunt) {
           foundation: "Foundation",
           modernizer: "Modernizer",
           fastClick: "FastClick",
-          underscore: "_",
-          react: "React"
         },
 
         resolve: {
           root: path.resolve(__dirname, './'),
           modulesDirectories: ['assets/vendor_components', 'assets/js/modules', 'node_modules'],
           extensions: ['', '.js', '.jsx'],
+          alias: {
+
+          }
         },
 
         entry: {
-          "index": "assets/js/index.jsx"
+          "app": "assets/js/app.jsx"
         },
 
         output: {
             path: "assets/js/dist",
-            filename: "[name]-page.js",
+            filename: "[name].js",
         },
       }
     },
@@ -112,8 +113,6 @@ module.exports = function(grunt) {
             'assets/vendor_components/foundation/js/vendor/modernizer.js',
             'assets/vendor_components/foundation/js/vendor/placeholder.js',
             'assets/vendor_components/foundation/js/foundation.min.js',
-            'assets/vendor_components/underscore/underscore-min.js',
-            'assets/vendor_components/react/*.js'
           ]
         }
       }
@@ -138,7 +137,20 @@ module.exports = function(grunt) {
         prereleaseName: false,
         regExp: false
       }
-    }
+    },
+
+    uglify: {
+      options: {
+        compress: {
+          drop_console: true
+        }
+      },
+      dist: {
+        files: {
+          'assets/js/dist/app.js': ['assets/js/dist/app.js']
+        }
+      }
+  }
 
   });
 
@@ -150,7 +162,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-webpack');
   grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-string-replace');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   //TODO: add minification...
-  grunt.registerTask('default', ['clean', 'jshint', 'webpack:site', 'compass:dist', 'concat:dist', 'string-replace']);
+  grunt.registerTask('default', ['clean', 'jshint', 'webpack:site', 'compass:dist', 'concat:dist', 'string-replace', 'uglify:dist']);
 };

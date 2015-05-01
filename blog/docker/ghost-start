@@ -4,6 +4,7 @@ GHOST="/ghost"
 OVERRIDE="/ghost-override"
 
 CONFIG="config.js"
+PACKAGE_FILE="package.json"
 DATA="content/data"
 IMAGES="content/images"
 THEMES="content/themes"
@@ -26,6 +27,12 @@ if [[ -f "$OVERRIDE/$CONFIG" ]]; then
   ln -s "$OVERRIDE/$CONFIG" "$CONFIG"
 fi
 
+# Symlink config file.
+if [[ -f "$OVERRIDE/$PACKAGE_FILE" ]]; then
+  rm -f "$PACKAGE_FILE"
+  ln -s "$OVERRIDE/$PACKAGE_FILE" "$PACKAGE_FILE"
+fi
+
 # Symlink themes.
 if [[ -d "$OVERRIDE/$THEMES" ]]; then
   for theme in $(find "$OVERRIDE/$THEMES" -mindepth 1 -maxdepth 1 -type d -exec basename {} \;)
@@ -39,5 +46,5 @@ fi
 chown -R ghost:ghost /data /ghost /ghost-override
 su ghost << EOF
 cd "$GHOST"
-NODE_ENV=${NODE_ENV:-production}  forever start index.js
+NODE_ENV=${NODE_ENV:-production} npm start
 EOF

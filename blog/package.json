@@ -23,7 +23,7 @@
     ],
     "main": "./core/index",
     "scripts": {
-        "start": "node index",
+        "start": "forever -f index.js",
         "test": "./node_modules/.bin/grunt validate --verbose"
     },
     "engines": {

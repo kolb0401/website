@@ -9,8 +9,7 @@
     "es6": true
   },
   "globals": {
-    "require": true,
-    "var2": false
+    "require": true
   },
   "rules": {
     "quotes": [2, "single"],

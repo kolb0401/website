@@ -1,6 +1,6 @@
 {
   "name": "jk-pet-project",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "dependencies": {
     "express": "~4.12.3",

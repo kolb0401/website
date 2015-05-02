@@ -2,7 +2,7 @@ module.exports = function(grunt) {
   var path = require("path");
   grunt.initConfig({
     jshint: {
-      files: ['Gruntfile.js', 'app.js', 'server/*.js', 'assets/js/*.js', 'assets/js/**/*.js', '!assets/vendor_components/**/*.js', '!assets/js/dist/*.js', '!assets/js/modules/react/**/*.js'],
+      files: ['Gruntfile.js', 'app.js', 'server/*.js'],
       options: {
         globals: {
           jQuery: true,
@@ -15,10 +15,20 @@ module.exports = function(grunt) {
     },
 
     watch: {
-      files: ['<%= jshint.files %>', 'assets/js/*.jsx', 'assets/js/**/*.jsx', 'assets/sass/*.scss', 'assets/sass/**/*.scss'],
+      files: [
+        '<%= jshint.files %>',
+        'assets/js/*.jsx',
+        'assets/js/**/*.jsx',
+        'assets/js/*.js',
+        'assets/js/**/*.js',
+        'assets/sass/*.scss',
+        'assets/sass/**/*.scss',
+        '!assets/vendor_components/**/*.js',
+        '!assets/js/dist/*.js',
+      ],
       tasks: ['clean','jshint', 'webpack:site', 'compass:dev', 'concat:dist', 'string-replace']
     },
-
+    
     webpack: {
       site: {
         // webpack options
@@ -32,12 +42,20 @@ module.exports = function(grunt) {
 
         module: {
           loaders: [
+            { test: /(\.js$|\.jsx$)/, exclude: /node_modules/, loader: "babel-loader"}
+          ],
+
+          preLoaders: [
             {
-                //tell webpack to use jsx-loader for all *.jsx files
-                test: /\.jsx$/,
-                loader: 'jsx-loader?insertPragma=React.DOM&harmony'
+                test: /(\.js$|\.jsx$)/, // include .js files
+                exclude: /node_modules/, // exclude any and all files in the node_modules folder
+                loader: "eslint-loader"
             }
           ]
+        },
+
+        eslint: {
+          configFile: '.eslintrc'
         },
 
         externals: {
@@ -45,6 +63,7 @@ module.exports = function(grunt) {
           foundation: "Foundation",
           modernizer: "Modernizer",
           fastClick: "FastClick",
+          ga: "ga"
         },
 
         resolve: {

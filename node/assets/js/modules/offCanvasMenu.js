@@ -5,9 +5,8 @@
  * This requires $(document).foundation() to be called first.
  *
  */
-var $ = require("jquery");
-
-var component = offCanvasMenu();
+'use strict';
+var $ = require('jquery');
 
 function offCanvasMenu() {
     $('.off-canvas-submenu').hide();
@@ -22,4 +21,4 @@ function offCanvasMenu() {
 
     });
 }
-module.exports = component;
+module.exports = offCanvasMenu;

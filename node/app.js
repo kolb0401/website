@@ -5,6 +5,7 @@
  * Express Dependencies
  */
 var express = require('express');
+var compression = require('compression');
 var app = express();
 var server = require('http').Server(app);
 var port = 8081;
@@ -22,11 +23,12 @@ console.log('Express started on port ' + port);
 /*
  * Use Handlebars for templating
  */
-var exphbs = require('express3-handlebars');
+var exphbs = require('express-handlebars');
 var hbs;
 
 // For gzip compression
-app.use(express.compress());
+app.use(compression());
+
 
 app.engine('handlebars', exphbs({
     // Default Layout and locate layouts and partials
@@ -40,15 +42,6 @@ app.set('views', __dirname + '/views/dist/views');
 
 // Locate the assets
 app.use(express.static(__dirname + '/assets'));
-
-/*
- * Config for Production and Development
- */
-if (process.env.NODE_ENV === 'production') {
-
-} else {
-
-}
 
 // Set Handlebars
 app.set('view engine', 'handlebars');

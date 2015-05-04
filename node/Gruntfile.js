@@ -28,7 +28,7 @@ module.exports = function(grunt) {
       ],
       tasks: ['clean','jshint', 'webpack:site', 'compass:dev', 'concat:dist', 'string-replace']
     },
-    
+
     webpack: {
       site: {
         // webpack options

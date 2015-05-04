@@ -6,9 +6,12 @@
  */
 var express = require('express');
 var compression = require('compression');
+var os = require('os');
 var app = express();
 var server = require('http').Server(app);
+var io = require('socket.io')(server);
 var port = 8081;
+var statisticsRoom = 'stats';
 
 
 /*
@@ -55,3 +58,23 @@ app.set('view engine', 'handlebars');
 app.get('*', function(request, response, next) {
     response.render('index');
 });
+
+io.on('connection', function (socket) {
+  socket.join(statisticsRoom);
+});
+
+//TODO vet the update interval
+setInterval(function () {
+  var stats = {
+    currentUsers: io.sockets.sockets.length,
+    memory: {
+      free: os.freemem(),
+      used: os.totalmem() - os.freemem()
+    },
+    load: os.loadavg(),
+    cpus: os.cpus(),
+    upTime: os.uptime()
+  };
+
+  io.to(statisticsRoom).emit('stats', stats);
+}, 1000);

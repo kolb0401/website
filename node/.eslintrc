@@ -8,9 +8,7 @@
     "node": true,
     "es6": true
   },
-  "globals": {
-    "require": true
-  },
+
   "rules": {
     "quotes": [2, "single"],
     "no-unused-vars": [1]

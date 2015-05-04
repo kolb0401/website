@@ -10,7 +10,7 @@ var component = React.createClass({
   getInitialState: function () {
     return {
       stats: null,
-      socket: io.connect('http://localhost:8081')
+      socket: io.connect('/')
     };
   },
 

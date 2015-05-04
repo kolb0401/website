@@ -4,30 +4,16 @@ var React = require('react');
 var PieChart = require('react-chartjs').Pie;
 
 var COLORS = {
-  free: '#2b83ba',
-  used: '#d7191c'
+  free: '#21A179',
+  used: '#DE291C'
 };
 
 /**
- * This component will render a doughnut chart illustrating the cpu cycles used.
- * it can be used as follows <Component cpus={cpus} />
+ * This component will render a pie chart illustrating the memory used.
  *
  */
 var component = React.createClass({
 
-  /**
-   * @return {Object}
-   *  @return {Array} cpus
-   *    @return {Object} cpu
-   *      @return {String} model
-   *      @return {Number} speed
-   *      @return {Object} times
-   *        @return {Number} idle
-   *        @return {Number} irq
-   *        @return {Number} nice
-   *        @return {Number} sys
-   *        @return {Number} user
-   */
   getDefaultProps: function (){
     return {
       free: 1,
@@ -59,6 +45,7 @@ var component = React.createClass({
         <div className='memory-data__chart'>
           <PieChart data={data} />
         </div>
+        <div className='memory-data__chart_name'>Percent Used</div>
       </div>
 
     );

@@ -13,7 +13,10 @@ var IndexPage = React.createClass({
               See the <a href="http://blog.jonathankolb.com">blog</a> for updates
             </p>
         </section>
-        <ServerStats />
+        <section className="container container-content">
+          <h2>Real Time Server Information</h2>
+            <ServerStats />
+        </section>
       </section>
     );
   },

@@ -4,6 +4,7 @@ var React = require('react');
 var io = require('socket.io-client');
 var CpuStats = require('./cpuStats');
 var MemStats = require('./memStats');
+var LoadStats = require('./loadStats');
 
 var component = React.createClass({
   getInitialState: function () {
@@ -26,6 +27,7 @@ var component = React.createClass({
       <section className="server-stats">
         <CpuStats cpus={this.state.stats.cpus} />
         <MemStats free={this.state.stats.memory.free} used={this.state.stats.memory.used} />
+        <LoadStats load={this.state.stats.load} />
       </section>
     );
   },

@@ -4,11 +4,11 @@ var React = require('react');
 var DoughnutChart = require('react-chartjs').Doughnut;
 
 var COLORS = {
-  idle: '#2b83ba',
-  irq: '#fdae61',
-  nice: '#ffffbf',
-  sys: '#abdda4',
-  user: '#d7191c'
+  idle: '#81AE9D',
+  irq: '#1E1E24',
+  nice: '#DF928E',
+  sys: '#21A179',
+  user: '#DE291C'
 };
 
 /**
@@ -67,11 +67,11 @@ var component = React.createClass({
         {this.state.data.map(function(cpu) {
           return (
             <div className="cpu">
-              <div className="cpu__name">CPU Model: {cpu.model}</div>
-              <div className="cpu__graph_title">CPU Cycle Usage</div>
+              <div className="cpu__name">{cpu.model}</div>
               <div className='cpu__graph'>
                 <DoughnutChart data={cpu.chartData} />
               </div>
+              <div className="cpu__graph_title">CPU Cycle Usage</div>
 
             </div>
           );

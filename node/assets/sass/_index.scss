@@ -20,26 +20,35 @@
       display: inline-block;
     }
 
-    .cpu-data__title,.memory-data__title,.load-data__title {
+    .user-data__title,.cpu-data__title,.memory-data__title,.load-data__title {
       font-size: 24px;
       padding-bottom: 20px;
     }
 
-    .memory-data__title,.load-data__title {
+    .user-data__title,.memory-data__title,.load-data__title {
       padding-bottom: 54px;
     }
 
-    .cpu,.memory,.load {
+    .user-data__value {
+      font-family: 'Oswald', sans-serif;
+      font-size: 72px;
+    }
+
+    .cpu,.memory,.load,.user {
       padding-left: 15px;
       padding-right: 15px;
       display: inline-block;
+    }
+
+    .user {
+      min-height: 306;
     }
 
     .cpu-data {
       padding-top: 25px;
     }
 
-    .memory,.load {
+    .memory,.load,.user {
       vertical-align: top;
       padding-top: 25px;
     }

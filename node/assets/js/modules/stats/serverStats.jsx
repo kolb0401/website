@@ -5,6 +5,7 @@ var io = require('socket.io-client');
 var CpuStats = require('./cpuStats');
 var MemStats = require('./memStats');
 var LoadStats = require('./loadStats');
+var UserStats = require('./userStats');
 
 var component = React.createClass({
   getInitialState: function () {
@@ -18,16 +19,18 @@ var component = React.createClass({
     if (!this.state.stats) {
       return (
         <section className="server-stats">
-
+          <UserStats users={0} />
+          <MemStats free={100} used={200} />
         </section>
       );
     }
 
     return (
       <section className="server-stats">
+        <UserStats users={this.state.stats.currentUsers} />
+        <LoadStats load={this.state.stats.load} />
         <CpuStats cpus={this.state.stats.cpus} />
         <MemStats free={this.state.stats.memory.free} used={this.state.stats.memory.used} />
-        <LoadStats load={this.state.stats.load} />
       </section>
     );
   },

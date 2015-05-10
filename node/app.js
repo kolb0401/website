@@ -77,4 +77,4 @@ setInterval(function () {
   };
 
   io.to(statisticsRoom).emit('stats', stats);
-}, 2000);
+}, 10000);

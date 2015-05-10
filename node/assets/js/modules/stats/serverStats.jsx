@@ -19,8 +19,6 @@ var component = React.createClass({
     if (!this.state.stats) {
       return (
         <section className="server-stats">
-          <UserStats users={0} />
-          <MemStats free={100} used={200} />
         </section>
       );
     }

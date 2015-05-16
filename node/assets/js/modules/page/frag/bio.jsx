@@ -14,7 +14,7 @@ var frag = React.createClass({
               of <a href="http://ruffstartdogs.org">Ruff Start Rescue</a>, a 501c3 dog
               rescue organization. I love to experiment with new technologies,
               both frontend and backend, on my personal site. When I am not nerding out
-              I enjoy watching hockey, and driving fast cars.
+              I enjoy watching hockey and driving fast cars.
             </p>
         </div>
       </section>

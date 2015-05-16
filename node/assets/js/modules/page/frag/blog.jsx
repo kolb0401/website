@@ -6,6 +6,7 @@ var frag = React.createClass({
   render: function () {
     return (
       <section id="blog" className="footer fluid-container">
+        <div className="text-mask"></div>
         <div className="container">
             <h2>Talentless Writer</h2>
             <p>
@@ -14,7 +15,10 @@ var frag = React.createClass({
               the Java Spring ecosystem. My blog also contains brief summaries
               of my experiences experimenting with new technologies in my free time.
             </p>
-            <button>Read All About It</button>
+            <div>
+              <a href="http://blog.jonathankolb.com">Read All About It</a>
+            </div>
+
         </div>
       </section>
     );

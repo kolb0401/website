@@ -1,0 +1,11 @@
+#social-bar {
+  background-color: $sec-grey;
+  padding:0;
+
+  .social-icon {
+    width: 33.3333333%;
+    text-align: center;
+    display: inline-block;
+    font-size: 30px;
+  }
+}

@@ -11,8 +11,10 @@ var frag = React.createClass({
             <p>
               I am a full stack software engineer for Smarter Travel LLC a subsidiarity of
               TripAdvisor. In my free time I am the volunteer IT Manager
-              Of <a href="http://ruffstartdogs.org">Ruff Start Rescue</a>. I love
-              to experiment with new technologies, both frontend and backend, on my person site.
+              of <a href="http://ruffstartdogs.org">Ruff Start Rescue</a>, a dog
+              rescue organization. I love to experiment with new technologies,
+              both frontend and backend, on my person site. When I am not nerding out
+              I enjoy watching hockey, and driving fast cars.
             </p>
         </div>
       </section>

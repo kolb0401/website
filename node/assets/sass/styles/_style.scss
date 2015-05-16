@@ -4,9 +4,15 @@ $pri-black: #000;
 $pri-grey: #1c1c1c;
 $pri-white: #e0e0e0;
 $sec-grey: #222;
+$pri-blue: #226CE0;
 
 h1,h2,h3,h4,h5 {
   font-family: 'Oswald', sans-serif;
+}
+
+a {
+  text-decoration:none;
+  color: $pri-blue;
 }
 
 label,p,div,span {
@@ -27,18 +33,6 @@ label,p,div,span {
   padding-bottom: 35px;
   padding-left: 1%;
   padding-right: 1%;
-  background-color: $pri-white;
-
-}
-
-#page-content > section > section {
-  background-color: $pri-white;
-  color: $pri-black;
-}
-
-#page-content > section > section:nth-child(2n+1) {
-  background-color: $pri-grey;
-  color: $pri-white;
 }
 
 .container {

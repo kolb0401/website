@@ -1,0 +1,75 @@
+@import 'compass/css3/animation';
+@import 'compass/css3/transform';
+
+.animated {
+  @include animation-fill-mode(both);
+  @include animation-duration(1s);
+}
+
+.delay-1s {
+  @include animation-delay(1s);
+}
+
+.fadeIn-up {
+  @include animation-name(fadeInUp);
+}
+
+.fadeIn-down {
+  @include animation-name(fadeInDown);
+}
+
+.fadeIn-left {
+  @include animation-name(fadeInLeft);
+}
+
+.fadeIn-right {
+  @include animation-name(fadeInRight);
+}
+
+@include keyframes(fadeInUp) {
+  0% {
+  opacity: 0;
+  @include transform(translate3d(0, 1000%, 0));
+  }
+
+  100% {
+    opacity: 1;
+    @include transform(none);
+  }
+}
+
+@include keyframes(fadeInDown) {
+  0% {
+  opacity: 0;
+  @include transform(translate3d(0, -1000%, 0));
+  }
+
+  100% {
+    opacity: 1;
+    @include transform(none);
+  }
+}
+
+@include keyframes(fadeInLeft) {
+  0% {
+  opacity: 0;
+  @include transform(translate3d(-1000%, 0, 0));
+  }
+
+  100% {
+    opacity: 1;
+    @include transform(none);
+  }
+}
+
+@include keyframes(fadeInRight) {
+  0% {
+  opacity: 0;
+  @include transform(translate3d(1000%, 0, 0));
+  }
+
+  100% {
+    opacity: 1;
+    @include transform(none);
+  }
+}

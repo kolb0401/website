@@ -1,6 +1,62 @@
 module.exports = function(grunt) {
   var path = require("path");
   grunt.initConfig({
+    bump: {
+      options: {
+        files: ['package.json'],
+        updateConfigs: [],
+        commit: true,
+        commitMessage: 'Release v%VERSION%',
+        commitFiles: ['package.json'],
+        createTag: true,
+        tagName: 'v%VERSION%',
+        tagMessage: 'Version %VERSION%',
+        push: true,
+        pushTo: 'origin',
+        gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d',
+        globalReplace: false,
+        prereleaseName: false,
+        regExp: false
+      }
+    },
+
+    clean: {
+      css: ['assets/css/dist', 'views/dist'],
+
+      js: ['assets/js/dist', 'views/dist']
+    },
+
+    compass: {                  // Task
+      dist: {                   // Target
+        options: {              // Target options
+          sassDir: 'assets/sass',
+          cssDir: 'assets/css/dist/',
+          imagesDir: 'assets/images',
+          environment: 'production'
+        }
+      },
+      dev: {                    // Another target
+        options: {
+          sassDir: 'assets/sass',
+          cssDir: 'assets/css/dist/',
+          imagesDir: 'assets/images'
+        }
+      }
+    },
+
+    concat: {
+      dist: {
+        files: {
+          //The foundation files do not play well with require. So we will just
+          // concat them into a vendor file and define the shim in webpack.
+          'assets/js/dist/vendor.min.js' : [
+            'assets/vendor_components/jquery/dist/jquery.min.js',
+            'assets/js/dist/app.js'
+          ]
+        }
+      }
+    },
+
     jshint: {
       files: ['Gruntfile.js', 'app.js', 'server/*.js'],
       options: {
@@ -14,19 +70,56 @@ module.exports = function(grunt) {
       }
     },
 
+    'string-replace': {
+      dist: {
+        files: {
+          'views/dist/': 'views/**'
+        },
+        options: {
+          replacements: [{
+            pattern: /<!-- @timestamp -->/ig,
+            replacement: function (match) {
+              return new Date().getTime();
+            }
+          }]
+        }
+      }
+    },
+
+    uglify: {
+      options: {
+        compress: {
+          drop_console: true
+        }
+      },
+      dist: {
+        files: {
+          'assets/js/dist/app.js': ['assets/js/dist/app.js']
+        }
+      }
+    },
+
     watch: {
-      files: [
-        '<%= jshint.files %>',
-        'assets/js/*.jsx',
-        'assets/js/**/*.jsx',
-        'assets/js/*.js',
-        'assets/js/**/*.js',
-        'assets/sass/*.scss',
-        'assets/sass/**/*.scss',
-        '!assets/vendor_components/**/*.js',
-        '!assets/js/dist/*.js',
-      ],
-      tasks: ['clean','jshint', 'webpack:site', 'compass:dev', 'concat:dist', 'string-replace']
+      js: {
+        files: [
+          '<%= jshint.files %>',
+          'assets/js/*.jsx',
+          'assets/js/**/*.jsx',
+          'assets/js/*.js',
+          'assets/js/**/*.js',
+          '!assets/vendor_components/**/*.js',
+          '!assets/js/dist/*.js'
+        ],
+        tasks: ['clean:js','jshint', 'webpack:site', 'concat:dist', 'string-replace']
+      },
+
+      css: {
+        files: [
+          'assets/sass/*.scss',
+          'assets/sass/**/*.scss',
+        ],
+        tasks: ['clean:css','compass:dev', 'string-replace']
+      }
     },
 
     webpack: {
@@ -59,11 +152,9 @@ module.exports = function(grunt) {
         },
 
         externals: {
-          jquery: "jQuery",
-          foundation: "Foundation",
-          modernizer: "Modernizer",
-          fastClick: "FastClick",
-          ga: "ga"
+          jquery: 'jQuery',
+          pageData: 'PageData',
+          ga: 'ga'
         },
 
         resolve: {
@@ -84,92 +175,7 @@ module.exports = function(grunt) {
             filename: "[name].js",
         },
       }
-    },
-
-    compass: {                  // Task
-      dist: {                   // Target
-        options: {              // Target options
-          sassDir: 'assets/sass',
-          cssDir: 'assets/css/dist/',
-          imagesDir: 'assets/images',
-          environment: 'production'
-        }
-      },
-      dev: {                    // Another target
-        options: {
-          sassDir: 'assets/sass',
-          cssDir: 'assets/css/dist/',
-          imagesDir: 'assets/images'
-        }
-      }
-    },
-
-    'string-replace': {
-      dist: {
-        files: {
-          'views/dist/': 'views/**'
-        },
-        options: {
-          replacements: [{
-            pattern: /<!-- @timestamp -->/ig,
-            replacement: function (match) {
-              return new Date().getTime();
-            }
-          }]
-        }
-      }
-    },
-
-    concat: {
-      dist: {
-        files: {
-          //The foundation files do not play well with require. So we will just
-          // concat them into a vendor file and define the shim in webpack.
-          'assets/js/dist/vendor.min.js' : [
-            'assets/vendor_components/foundation/js/vendor/jquery.js',
-            'assets/vendor_components/foundation/js/vendor/jquery.cookie.js',
-            'assets/vendor_components/foundation/js/vendor/fastclick.js',
-            'assets/vendor_components/foundation/js/vendor/modernizer.js',
-            'assets/vendor_components/foundation/js/vendor/placeholder.js',
-            'assets/vendor_components/foundation/js/foundation.min.js',
-          ]
-        }
-      }
-    },
-
-    clean: ["assets/css/dist", "assets/js/dist", "views/dist"],
-
-    bump: {
-      options: {
-        files: ['package.json'],
-        updateConfigs: [],
-        commit: true,
-        commitMessage: 'Release v%VERSION%',
-        commitFiles: ['package.json'],
-        createTag: true,
-        tagName: 'v%VERSION%',
-        tagMessage: 'Version %VERSION%',
-        push: true,
-        pushTo: 'origin',
-        gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d',
-        globalReplace: false,
-        prereleaseName: false,
-        regExp: false
-      }
-    },
-
-    uglify: {
-      options: {
-        compress: {
-          drop_console: true
-        }
-      },
-      dist: {
-        files: {
-          'assets/js/dist/app.js': ['assets/js/dist/app.js']
-        }
-      }
-  }
+    }
 
   });
 
@@ -184,5 +190,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
   //TODO: add minification...
-  grunt.registerTask('default', ['clean', 'jshint', 'webpack:site', 'compass:dist', 'concat:dist', 'string-replace', 'uglify:dist']);
+  grunt.registerTask('default', ['clean', 'jshint', 'webpack:site', 'compass:dist', 'uglify:dist', 'concat:dist', 'string-replace']);
 };

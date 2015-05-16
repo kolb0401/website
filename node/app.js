@@ -10,14 +10,14 @@ var os = require('os');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-var port = 8081;
+var port = process.env.PORT || 8081;
 var statisticsRoom = 'stats';
 
 
 /*
  * Start it up
  */
-server.listen(process.env.PORT || port);
+server.listen(port);
 console.log('Express started on port ' + port);
 
 
@@ -49,14 +49,24 @@ app.use(express.static(__dirname + '/assets'));
 // Set Handlebars
 app.set('view engine', 'handlebars');
 
+var env = 'development';
 
+if (process.env.RACK_ENV === 'production') {
+  env = 'production';
+}
+
+var pageData = {
+  socketPath: env === 'production' ? '/' : 'http://localhost:' + port + '/'
+};
 
 /*
  * Routes
  */
 // Index Page
 app.get('*', function(request, response, next) {
-    response.render('index');
+    response.render('index', {
+      pageData: JSON.stringify(pageData)
+    });
 });
 
 io.on('connection', function (socket) {

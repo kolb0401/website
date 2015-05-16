@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react');
-var io = require('socket.io-client');
+
 var CpuStats = require('./cpuStats');
 var MemStats = require('./memStats');
 var LoadStats = require('./loadStats');
@@ -10,8 +10,7 @@ var UserStats = require('./userStats');
 var component = React.createClass({
   getInitialState: function () {
     return {
-      stats: null,
-      socket: io.connect('/')
+      stats: null
     };
   },
 
@@ -34,7 +33,7 @@ var component = React.createClass({
   },
 
   componentDidMount: function (){
-    this.state.socket.on('stats', function (stats){
+    this.props.socket.on('stats', function (stats){
       this.setState({
         stats: stats
       });

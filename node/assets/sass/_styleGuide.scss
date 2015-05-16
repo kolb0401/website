@@ -1,0 +1,30 @@
+.style-guide__header {
+  border-bottom: 1px solid $pri-black;
+}
+
+.colors__sample {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin: 5px 5px 5px 5px;
+}
+
+.colors__sample-color {
+  width: 98%;
+  height: 75px;
+  margin-left: 1%;
+  margin-right: 1%;
+  background-color: $pri-white;
+
+  &.pri-black {
+    background-color: $pri-black;
+  }
+
+  &.pri-grey {
+    background-color: $pri-grey;
+  }
+
+  &.sec-grey {
+    background-color: $sec-grey;
+  }
+}

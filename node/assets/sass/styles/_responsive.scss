@@ -1,0 +1,20 @@
+$media-xs: "(max-width: 767px)";
+$media-s: "(min-width: 767px) and (max-width: 991px)";
+$media-m: "(min-width: 992px) and (max-width: 1199px)";
+$media-l: "(min-width: 1200px)";
+$media-not-xs: "(min-width: 767px)";
+
+@mixin aspect-ratio($width, $height) {
+    padding-bottom: $height / $width * 100%;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+@mixin respond-to($media) {
+  @media #{$media} {
+      @content;
+  }
+}

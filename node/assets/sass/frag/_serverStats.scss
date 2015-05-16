@@ -1,0 +1,49 @@
+.server-stats {
+  padding-top: 45px;
+  text-align: center;
+
+  .cpu-data {
+    display: inline-block;
+  }
+
+  .user-data__title,.cpu-data__title,.memory-data__title,.load-data__title {
+    font-size: 24px;
+    padding-bottom: 20px;
+  }
+
+  .user-data__title,.memory-data__title,.load-data__title {
+    padding-bottom: 54px;
+  }
+
+  .user-data__value {
+    font-family: 'Oswald', sans-serif;
+    font-size: 72px;
+  }
+
+  .cpu,.memory,.load,.user {
+    padding-left: 15px;
+    padding-right: 15px;
+    display: inline-block;
+  }
+
+  .user {
+    min-height: 306;
+  }
+
+  .cpu-data {
+    padding-top: 25px;
+  }
+
+  .memory,.load,.user {
+    vertical-align: top;
+    padding-top: 25px;
+  }
+
+  .cpu__name, {
+    padding-bottom: 10px;
+  }
+
+  .cpu__graph_title,.memory-data__chart_name,.load-data__chart_name {
+    padding-top: 10px;
+  }
+}

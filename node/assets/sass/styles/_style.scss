@@ -1,0 +1,68 @@
+@import 'responsive';
+
+$pri-black: #000;
+$pri-grey: #1c1c1c;
+$pri-white: #e0e0e0;
+$sec-grey: #222;
+
+h1,h2,h3,h4,h5 {
+  font-family: 'Oswald', sans-serif;
+}
+
+label,p,div,span {
+  font-family: 'Muli', sans-serif;
+  font-size: 18px;
+}
+
+.pri-font {
+  font-family: 'Muli', sans-serif;
+}
+
+.sec-font {
+  font-family: 'Oswald', sans-serif;
+}
+
+.fluid-container {
+  padding-top: 35px;
+  padding-bottom: 35px;
+  padding-left: 1%;
+  padding-right: 1%;
+  background-color: $pri-white;
+
+}
+
+#page-content > section > section {
+  background-color: $pri-white;
+  color: $pri-black;
+}
+
+#page-content > section > section:nth-child(2n+1) {
+  background-color: $pri-grey;
+  color: $pri-white;
+}
+
+.container {
+  margin: auto;
+  width: 980px;
+
+  @include respond-to($media-xs) {
+    width: 98%;
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+
+  @include respond-to($media-s) {
+    width: 757px;
+  }
+
+  @include respond-to($media-m) {
+    width: 982px;
+  }
+
+  @include respond-to($media-l) {
+    width: 1200px;
+  }
+
+}
+
+@import 'animations';

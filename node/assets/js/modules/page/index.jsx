@@ -1,10 +1,10 @@
 'use strict';
 var React = require('react');
-var ServerStats = require('stats/serverStats');
-var SocialBar = require('page/frag/socialBar');
-var Bio = require('page/frag/bio');
-var Blog = require('page/frag/blog');
-var Footer = require('page/frag/footer');
+var ServerStats = require('../stats/serverStats');
+var SocialBar = require('./frag/socialBar');
+var Bio = require('./frag/bio');
+var Blog = require('./frag/blog');
+var Footer = require('./frag/footer');
 
 var IndexPage = React.createClass({
 

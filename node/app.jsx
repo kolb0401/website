@@ -4,6 +4,8 @@
 /*
  * Express Dependencies
  */
+require('babel/register');
+var React = require('react');
 var express = require('express');
 var compression = require('compression');
 var os = require('os');
@@ -62,11 +64,22 @@ var pageData = {
 /*
  * Routes
  */
+
+ //START REACT ROUTER
+ var Router = require('react-router');
+ var routes = require('./assets/js/modules/routes');
+
+
 // Index Page
 app.get('*', function(request, response, next) {
+  Router.run(routes, request.path, function (Handler, state) {
+    var content = React.renderToString(<Handler />);
+
     response.render('index', {
+      content: content,
       pageData: JSON.stringify(pageData)
     });
+  });
 });
 
 io.on('connection', function (socket) {

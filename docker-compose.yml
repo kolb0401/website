@@ -10,16 +10,12 @@ node1:
   image: fumblesandfriends/node
   ports:
     - "8080"
-  volumes:
-    - node:/src
   environment:
     - RACK_ENV=production
 node2:
   image: fumblesandfriends/node
   ports:
     - "8080"
-  volumes:
-    - node:/src
   environment:
     - RACK_ENV=production
 blog1:

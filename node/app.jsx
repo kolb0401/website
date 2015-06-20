@@ -12,7 +12,7 @@ var os = require('os');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-var port = process.env.PORT || 8081;
+var port = process.env.PORT || 8080;
 var statisticsRoom = 'stats';
 
 

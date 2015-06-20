@@ -22,7 +22,7 @@ WORKDIR /src
 RUN cd /src; npm install
 
 # Expose port
-EXPOSE  8081
+EXPOSE  8080
 
 # Run app using node
-CMD ["node", "./app.js"]
+CMD ["npm", "start"]

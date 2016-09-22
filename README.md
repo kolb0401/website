@@ -1,6 +1,10 @@
 README
 ======
 
+DEPRICATED
+===
+See personal_website
+
 Overview
 ========
 This repository contains the code that powers jonathankolb.com. The site currently has
